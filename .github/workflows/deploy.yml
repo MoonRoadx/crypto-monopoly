@@ -1,0 +1,24 @@
+name: Deploy Crypto Monopoly to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Copy client files to a temporary directory
+        run: |
+          mkdir -p temp_client
+          cp -r client/* temp_client/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./temp_client
+          force_orphan: true
