@@ -1,5 +1,6 @@
 // Connexion au serveur WebSocket (remplace l'URL par celle de ton backend Heroku)
-const socket = io('https://ton-url-heroku.herokuapp.com');
+const socket = io('https://crypto-monopoly-backend.onrender.com'); // Remplace par l'URL de ton backend
+
 
 // Variables globales
 let gameId;
